@@ -6,19 +6,24 @@ public class Cube : MonoBehaviour
 {
     public MeshRenderer Renderer;
     public Vector3 cubeStartPosition = new Vector3(3,4,1);
-    
+    private Vector3 cubeScale = Vector3.one;
+    public float cubeScaleMultiplier = 1.3f;
+    public float cubeRotateX = 10.0f;
+
+    public Color cubeColor = new Color(0.5f, 1.0f, 0.3f, 0.4f);
+
     void Start()
     {
         transform.position = cubeStartPosition;
-        transform.localScale = Vector3.one * 1.3f;
+        transform.localScale = cubeScale * cubeScaleMultiplier;
         
         Material material = Renderer.material;
         
-        material.color = new Color(0.5f, 1.0f, 0.3f, 0.4f);
+        material.color = cubeColor;
     }
     
     void Update()
     {
-        transform.Rotate(10.0f * Time.deltaTime, 0.0f, 0.0f);
+        transform.Rotate(cubeRotateX * Time.deltaTime, 0.0f, 0.0f);
     }
 }
