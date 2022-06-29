@@ -8,8 +8,6 @@ public class Cube : MonoBehaviour
     public Vector3 cubeStartPosition = new Vector3(3,4,1);
     private Vector3 cubeScale = Vector3.one;
     public float cubeScaleMultiplier = 1.3f;
-    public float cubeRotateX = 10.0f;
-
     public Color cubeColor = new Color(0.5f, 1.0f, 0.3f, 0.4f);
 
     void Start()
@@ -24,6 +22,8 @@ public class Cube : MonoBehaviour
     
     void Update()
     {
+    float cubeRotateX = Random.Range(1.0f, 400.0f);
+        Debug.Log(cubeRotateX);
         transform.Rotate(cubeRotateX * Time.deltaTime, 0.0f, 0.0f);
     }
 }
